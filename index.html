@@ -1,70 +1,139 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Community</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Community — Connect, Learn, Build</title>
+  <meta name="description" content="A tech learning community for everyone. Join thousands of developers and designers worldwide." />
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/style.css" />
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <h1>Tech Community</h1>
-        <p>
-            Tech Community adalah komunitas bagi para pecinta teknologi untuk berbagi pengetahuan,
-            berdiskusi, dan mengembangkan keterampilan di berbagai bidang teknologi.
-        </p>
-    </header>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a class="nav-logo" href="./index.html">tech<span class="dot">.</span>community</a>
+    <ul class="nav-links">
+      <li><a href="./index.html" class="active">Home</a></li>
+      <li><a href="pages/gallery.html">Gallery</a></li>
+    </ul>
+    <a href="pages/form.html" class="btn-nav">Join Now</a>
+  </nav>
 
-    <!-- NAVIGATION -->
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="form.html">Join</a>
-        <a href="gallery.html">Media</a>
-    </nav>
+  <!-- HERO SECTION -->
+  <section class="hero" style="grid-template-columns:1fr; text-align:center; justify-items:center;">
+    <div class="hero-content" style="align-items:center; display:flex; flex-direction:column;">
+      <span class="badge">Open Community</span>
+      <h1 style="letter-spacing:-2px;">Build the Future<br>with <em>Tech Community</em></h1>
+      <p class="hero-desc" style="max-width:520px;">We connect tech enthusiasts from around the world. Learn new skills, collaborate on projects, and grow your career together.</p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a href="pages/form.html" class="btn-primary">Register Now →</a>
+        <a href="pages/gallery.html" class="btn-secondary">View Gallery ↗</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">2.4K+</span>
+          <span class="stat-label">Members</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">120+</span>
+          <span class="stat-label">Workshops</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">45+</span>
+          <span class="stat-label">Partners</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <h2>Join Our Community</h2>
+  <!-- FEATURES -->
+  <section class="features">
+    <span class="section-label">Why Join Us</span>
+    <h2 class="section-title">Everything you need to grow</h2>
+    <p class="section-sub">Our community offers a complete ecosystem for tech professionals at every level.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">01</div>
+        <h3>Global Networking</h3>
+        <p>Connect with thousands of developers and designers from around the world through our events and online forums.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">02</div>
+        <h3>Monthly Workshops</h3>
+        <p>Join monthly workshops and seminars held both online and offline, covering the latest tech topics.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">03</div>
+        <h3>Career Opportunities</h3>
+        <p>Get exclusive job opportunities from leading tech companies and startups in the industry.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">04</div>
+        <h3>Mentorship Program</h3>
+        <p>Get paired with experienced mentors who will guide your learning journey and career growth.</p>
+      </div>
+    </div>
+  </section>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Name :</th>
-                    <th>Email : </th>
-                    <th>Interest :</th>
-                </tr>
-            </thead>
-            <tbody id="memberTable">
-                <!-- Data dari JavaScript -->
-            </tbody>
-        </table>
-    </main>
+  <!-- MEMBER TABLE -->
+  <section class="members-section">
+    <span class="section-label">Our People</span>
+    <h2 class="section-title">Community Members</h2>
+    <p class="section-sub">Meet the talented individuals who make up our growing community.</p>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Interest Area</th>
+          </tr>
+        </thead>
+        <tbody id="memberTable">
+          <!-- populated by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footer">
+      <span id="memberCount"></span>
+      <a href="pages/form.html" class="btn-primary">+ Add New Member</a>
+    </div>
+  </section>
 
-    <!-- JAVASCRIPT -->
-    <script>
-        const members = [
-            { nama: "Farhan", email: "farhan@email.com", minat: "Web Development" },
-            { nama: "Aisyah", email: "aisyah@email.com", minat: "UI/UX Design" },
-            { nama: "Budi", email: "budi@email.com", minat: "Data Science" }
-        ];
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer-logo">tech<span class="dot">.</span>community</span>
+    <p>© 2025 Tech Community. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="pages/gallery.html">Gallery</a>
+    </div>
+  </footer>
 
-        const table = document.getElementById("memberTable");
+  <!-- JAVASCRIPT -->
+  <script src="members.js"></script>
+  <script>
+    // Get member data from members.js and display in table
+    var data = getMembers();
+    var tbody = document.getElementById("memberTable");
 
-        members.forEach(member => {
-            const row = `
-                <tr>
-                    <td>${member.nama}</td>
-                    <td>${member.email}</td>
-                    <td>${member.minat}</td>
-                </tr>
-            `;
-            table.innerHTML += row;
-        });
-    </script>
+    for (var i = 0; i < data.length; i++) {
+      var row = "<tr>";
+      row += "<td>" + (i + 1) + "</td>";
+      row += "<td>" + data[i].nama + "</td>";
+      row += "<td>" + data[i].email + "</td>";
+      row += "<td><span class='badge-interest'>" + data[i].minat + "</span></td>";
+      row += "</tr>";
+      tbody.innerHTML += row;
+    }
+
+    // Update member count
+    document.getElementById("memberCount").textContent = "Showing " + data.length + " members";
+  </script>
 
 </body>
 </html>

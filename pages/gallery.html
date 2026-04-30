@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — Tech Community</title>
+  <meta name="description" content="Browse photos, videos, and podcasts from Tech Community events and workshops." />
+
+  <link rel="stylesheet" href="../style/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a class="nav-logo" href="../index.html">tech<span class="dot">.</span>community</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+    </ul>
+    <a href="form.html" class="btn-nav">Join Now</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="section-label">Media</span>
+      <h1>Multimedia <em>Gallery</em></h1>
+      <p>Explore photos, videos, and podcasts from our community events, workshops, and meetups around the world.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section class="gallery-section">
+
+    <!-- ===== IMAGE SECTION ===== -->
+    <div class="media-block">
+      <span class="media-label">Photos</span>
+      <h2 class="media-title">Event Gallery</h2>
+
+      <div class="img-showcase" style="grid-template-columns: 1fr;">
+        <div class="img-main-wrap">
+          <img id="gambarUtama"
+            src="../assets/wp4401472-realistic-minecraft-wallpapers.jpg"
+            alt="Activity Photo" />
+          <div class="img-caption" id="keteranganGambar">Realistic Minecraft Wallpaper</div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- ===== VIDEO SECTION ===== -->
+    <div class="media-block">
+      <span class="media-label">Videos</span>
+      <h2 class="media-title">Activity Videos</h2>
+
+      <div class="video-wrapper">
+        <iframe id="videoFrame"
+          src="../assets/YTDown_YouTube_10-minutes-of-Relaxing-Gameplay-in-Minec_Media_P47w7ITT7ho_001_1080p.mp4"
+          title="Video Tech Community"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+
+    </div>
+
+    <!-- ===== AUDIO SECTION ===== -->
+    <div class="media-block">
+      <span class="media-label">Podcast</span>
+      <h2 class="media-title">Tech Community Podcast</h2>
+
+      <div class="audio-player">
+        <div class="audio-cover">Podcast</div>
+        <div class="audio-info">
+          <span class="audio-track" id="judulTrack">EP.01 – Menjadi Developer Handal</span>
+          <span class="audio-sub">Tech Community Podcast · 2024</span>
+
+          <audio id="audioPlayer" style="display:none;">
+            <source src="../assets/MP3Now.com_YouTube_Otherside-Minecraft-Music-Disc-Lena-Rain_Media_QVph9G72x8E_009_128k.mp3" type="audio/mpeg" />
+          </audio>
+
+          <div class="audio-controls">
+            <button class="audio-btn audio-btn-main" onclick="putarAudio()" title="Play">▶</button>
+            <button class="audio-btn" onclick="pauseAudio()" title="Pause">⏸</button>
+            <button class="audio-btn" onclick="stopAudio()" title="Stop">⏹</button>
+          </div>
+
+          <div class="progress-row">
+            <span id="currentTime">0:00</span>
+            <div class="progress-bar" onclick="seekAudio(event)">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span id="totalTime">0:00</span>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <a href="../index.html" class="btn-secondary" style="align-self:flex-start;">← Back to Home</a>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer-logo">tech<span class="dot">.</span>community</span>
+    <p>© 2025 Tech Community. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function putarAudio() {
+      document.getElementById("audioPlayer").play();
+    }
+
+    function pauseAudio() {
+      document.getElementById("audioPlayer").pause();
+    }
+
+    function stopAudio() {
+      var audio = document.getElementById("audioPlayer");
+      audio.pause();
+      audio.currentTime = 0;
+    }
+
+    function seekAudio(e) {
+      var audio = document.getElementById("audioPlayer");
+      var bar = e.currentTarget;
+      var rect = bar.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var pct = x / rect.width;
+      if (audio.duration) {
+        audio.currentTime = pct * audio.duration;
+      }
+    }
+
+    // Format time as m:ss
+    function formatTime(sec) {
+      if (isNaN(sec)) return "0:00";
+      var m = Math.floor(sec / 60);
+      var s = Math.floor(sec % 60);
+      return m + ":" + (s < 10 ? "0" : "") + s;
+    }
+
+    // Update progress bar
+    var audioEl = document.getElementById("audioPlayer");
+    audioEl.addEventListener("timeupdate", function() {
+      var pct = (audioEl.currentTime / audioEl.duration) * 100;
+      document.getElementById("progressFill").style.width = pct + "%";
+      document.getElementById("currentTime").textContent = formatTime(audioEl.currentTime);
+    });
+    audioEl.addEventListener("loadedmetadata", function() {
+      document.getElementById("totalTime").textContent = formatTime(audioEl.duration);
+    });
+  </script>
+
+</body>
+</html>
