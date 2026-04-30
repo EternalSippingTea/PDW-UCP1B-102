@@ -1,139 +1,66 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tech Community — Connect, Learn, Build</title>
-  <meta name="description" content="A tech learning community for everyone. Join thousands of developers and designers worldwide." />
-
-  <link rel="stylesheet" href="style/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Community</title>
+  <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-
-  <!-- NAVBAR -->
   <nav class="navbar">
-    <a class="nav-logo" href="./index.html">tech<span class="dot">.</span>community</a>
+    <a href="index.html" class="nav-logo">tech.community</a>
     <ul class="nav-links">
-      <li><a href="./index.html" class="active">Home</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="pages/gallery.html">Gallery</a></li>
     </ul>
     <a href="pages/form.html" class="btn-nav">Join Now</a>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="hero" style="grid-template-columns:1fr; text-align:center; justify-items:center;">
-    <div class="hero-content" style="align-items:center; display:flex; flex-direction:column;">
-      <span class="badge">Open Community</span>
-      <h1 style="letter-spacing:-2px;">Build the Future<br>with <em>Tech Community</em></h1>
-      <p class="hero-desc" style="max-width:520px;">We connect tech enthusiasts from around the world. Learn new skills, collaborate on projects, and grow your career together.</p>
-      <div class="hero-actions" style="justify-content:center;">
-        <a href="pages/form.html" class="btn-primary">Register Now →</a>
-        <a href="pages/gallery.html" class="btn-secondary">View Gallery ↗</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">2.4K+</span>
-          <span class="stat-label">Members</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">120+</span>
-          <span class="stat-label">Workshops</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">45+</span>
-          <span class="stat-label">Partners</span>
-        </div>
-      </div>
-    </div>
+  <section class="hero">
+    <h1>Build the Future with Tech Community</h1>
+    <p>We connect tech enthusiasts from around the world. Learn new skills, collaborate, and grow.</p>
+    <a href="pages/form.html" class="btn-primary">Register Now</a>
   </section>
 
-  <!-- FEATURES -->
   <section class="features">
-    <span class="section-label">Why Join Us</span>
-    <h2 class="section-title">Everything you need to grow</h2>
-    <p class="section-sub">Our community offers a complete ecosystem for tech professionals at every level.</p>
+    <h2>Why Join Us</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon">01</div>
         <h3>Global Networking</h3>
-        <p>Connect with thousands of developers and designers from around the world through our events and online forums.</p>
+        <p>Connect with thousands worldwide.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">02</div>
-        <h3>Monthly Workshops</h3>
-        <p>Join monthly workshops and seminars held both online and offline, covering the latest tech topics.</p>
+        <h3>Workshops</h3>
+        <p>Join monthly online & offline events.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">03</div>
-        <h3>Career Opportunities</h3>
-        <p>Get exclusive job opportunities from leading tech companies and startups in the industry.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">04</div>
-        <h3>Mentorship Program</h3>
-        <p>Get paired with experienced mentors who will guide your learning journey and career growth.</p>
+        <h3>Career</h3>
+        <p>Get exclusive job opportunities.</p>
       </div>
     </div>
   </section>
 
-  <!-- MEMBER TABLE -->
   <section class="members-section">
-    <span class="section-label">Our People</span>
-    <h2 class="section-title">Community Members</h2>
-    <p class="section-sub">Meet the talented individuals who make up our growing community.</p>
-    <div class="table-wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Interest Area</th>
-          </tr>
-        </thead>
-        <tbody id="memberTable">
-          <!-- populated by JavaScript -->
-        </tbody>
-      </table>
-    </div>
-    <div class="table-footer">
-      <span id="memberCount"></span>
-      <a href="pages/form.html" class="btn-primary">+ Add New Member</a>
-    </div>
+    <h2>Community Members</h2>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Name</th><th>Email</th><th>Interest Area</th></tr>
+      </thead>
+      <tbody id="memberTable"></tbody>
+    </table>
+    <p id="memberCount"></p>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <span class="footer-logo">tech<span class="dot">.</span>community</span>
+  <footer>
     <p>© 2025 Tech Community. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="pages/gallery.html">Gallery</a>
-    </div>
   </footer>
 
-  <!-- JAVASCRIPT -->
   <script src="members.js"></script>
   <script>
-    // Get member data from members.js and display in table
-    var data = getMembers();
+    var data = typeof getMembers === 'function' ? getMembers() : [];
     var tbody = document.getElementById("memberTable");
-
-    for (var i = 0; i < data.length; i++) {
-      var row = "<tr>";
-      row += "<td>" + (i + 1) + "</td>";
-      row += "<td>" + data[i].nama + "</td>";
-      row += "<td>" + data[i].email + "</td>";
-      row += "<td><span class='badge-interest'>" + data[i].minat + "</span></td>";
-      row += "</tr>";
-      tbody.innerHTML += row;
-    }
-
-    // Update member count
-    document.getElementById("memberCount").textContent = "Showing " + data.length + " members";
+    data.forEach((m, i) => tbody.innerHTML += `<tr><td>${i+1}</td><td>${m.nama}</td><td>${m.email}</td><td>${m.minat}</td></tr>`);
+    document.getElementById("memberCount").textContent = `Showing ${data.length} members`;
   </script>
-
 </body>
 </html>

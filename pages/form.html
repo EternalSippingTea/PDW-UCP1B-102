@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register Member — Tech Community</title>
-  <meta name="description" content="Join Tech Community by filling in your details. Become part of our growing network of tech enthusiasts." />
-
-  <link rel="stylesheet" href="../style/style.css" />
+  <meta charset="UTF-8">
+  <title>Register - Tech Community</title>
+  <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
-
-  <!-- NAVBAR -->
   <nav class="navbar">
-    <a class="nav-logo" href="../index.html">tech<span class="dot">.</span>community</a>
+    <a href="../index.html" class="nav-logo">tech.community</a>
     <ul class="nav-links">
       <li><a href="../index.html">Home</a></li>
       <li><a href="gallery.html">Gallery</a></li>
@@ -20,197 +15,89 @@
     <a href="form.html" class="btn-nav">Join Now</a>
   </nav>
 
-  <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="page-hero-content">
-      <span class="section-label">Registration</span>
-      <h1>Join the <em>Community</em></h1>
-      <p>Fill in your details below to become a member. It only takes a minute to unlock access to workshops, networking events, and career opportunities.</p>
-    </div>
+    <h1>Join the <em>Community</em></h1>
+    <p>Fill in your details below to become a member.</p>
   </section>
 
-  <!-- FORM SECTION -->
   <section class="form-section">
-
-    <!-- LEFT: Form -->
+    <!-- Form Container -->
     <div class="form-container">
       <div class="form-card">
-        <div class="form-header">
-          <span class="form-header-icon">///</span>
-          <div>
-            <h2>Personal Information</h2>
-            <p>All fields are required</p>
-          </div>
+        <h2>Personal Information</h2>
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" id="inputNama" placeholder="Enter your full name">
         </div>
-        <div class="form-body">
-          <div class="form-group">
-            <label for="inputNama">Full Name <span class="required">*</span></label>
-            <input type="text" id="inputNama" placeholder="Enter your full name" />
-            <span class="field-hint">Your name will be displayed in the member directory</span>
-          </div>
-
-          <div class="form-group">
-            <label for="inputEmail">Email Address <span class="required">*</span></label>
-            <input type="email" id="inputEmail" placeholder="example@email.com" />
-            <span class="field-hint">We'll use this to send you community updates</span>
-          </div>
-
-          <div class="form-group">
-            <label for="inputMinat">Field of Interest <span class="required">*</span></label>
-            <div class="select-wrapper">
-              <select id="inputMinat">
-                <option value="" disabled selected>— Select field of interest —</option>
-                <option value="Web Development">Web Development</option>
-                <option value="Mobile Development">Mobile Development</option>
-                <option value="Data Science">Data Science</option>
-                <option value="Artificial Intelligence">Artificial Intelligence</option>
-                <option value="Cybersecurity">Cybersecurity</option>
-                <option value="UI/UX Design">UI/UX Design</option>
-                <option value="Cloud Computing">Cloud Computing</option>
-                <option value="Game Development">Game Development</option>
-              </select>
-            </div>
-          </div>
-
-          <button class="btn-primary btn-full" onclick="submitForm()">Register Now →</button>
-          <a href="../index.html" class="btn-ghost" style="justify-content:center;">← Back to Home</a>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" id="inputEmail" placeholder="example@email.com">
         </div>
+        <div class="form-group">
+          <label>Field of Interest *</label>
+          <select id="inputMinat">
+            <option value="">— Select field of interest —</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Mobile Development">Mobile Development</option>
+            <option value="Data Science">Data Science</option>
+            <option value="UI/UX Design">UI/UX Design</option>
+          </select>
+        </div>
+        <button class="btn-primary" onclick="submitForm()">Register Now →</button>
       </div>
 
-      <!-- Result Panel (shows after registration) -->
       <div class="result-panel" id="resultPanel" style="display:none;">
-        <span class="result-icon">Success!</span>
         <h3>Registration Successful!</h3>
-        <p>Welcome to Tech Community. Here's your info:</p>
-        <div class="result-data" id="resultData"></div>
+        <div id="resultData"></div>
         <div class="result-actions">
-          <button class="btn-primary" onclick="resetAndRegisterAnother()">Register Another →</button>
-          <a href="../index.html" class="btn-secondary">View Members</a>
+          <button class="btn-primary" onclick="resetForm()">Register Another</button>
         </div>
       </div>
     </div>
 
-    <!-- RIGHT: Side Panel -->
+    <!-- Side Panel -->
     <div class="form-side">
-      <!-- New Registrations -->
       <div class="side-card">
         <h3>New Registrations</h3>
-        <p class="side-sub">Members registered in this session</p>
-        <div id="hasilInput" class="member-list">
-          <div class="empty-state">No new registrations yet.<br>Fill the form to get started!</div>
-        </div>
+        <div id="hasilInput" class="member-list"><div class="empty-state">No new registrations yet.</div></div>
       </div>
-
-      <!-- Info Card -->
       <div class="side-card">
         <h3>What You Get</h3>
-        <p class="side-sub">Benefits of joining</p>
-        <ul class="info-list">
-          <li>✦ Access to monthly workshops</li>
-          <li>✦ Exclusive job board</li>
-          <li>✦ Mentorship matching</li>
-          <li>✦ Community Slack channel</li>
-          <li>✦ Annual hackathon invite</li>
+        <ul>
+          <li>Workshops</li>
+          <li>Job Board</li>
+          <li>Mentorship</li>
         </ul>
       </div>
     </div>
-
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <span class="footer-logo">tech<span class="dot">.</span>community</span>
+  <footer>
     <p>© 2025 Tech Community. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="../index.html">Home</a>
-      <a href="gallery.html">Gallery</a>
-    </div>
   </footer>
 
-  <!-- JAVASCRIPT -->
   <script src="../members.js"></script>
   <script>
-    // Array sementara untuk menyimpan data anggota baru di sesi ini
-    var anggotaBaru = [];
-
+    let newMembers = [];
     function submitForm() {
-      var nama  = document.getElementById("inputNama").value;
-      var email = document.getElementById("inputEmail").value;
-      var minat = document.getElementById("inputMinat").value;
+      const nama = document.getElementById("inputNama").value;
+      const email = document.getElementById("inputEmail").value;
+      const minat = document.getElementById("inputMinat").value;
+      if(!nama || !email || !minat) return alert("All fields are required!");
 
-      // Validasi sederhana with shake animation
-      var valid = true;
-      if (nama == "") {
-        document.getElementById("inputNama").classList.add("shake");
-        setTimeout(function() { document.getElementById("inputNama").classList.remove("shake"); }, 500);
-        valid = false;
-      }
-      if (email == "") {
-        document.getElementById("inputEmail").classList.add("shake");
-        setTimeout(function() { document.getElementById("inputEmail").classList.remove("shake"); }, 500);
-        valid = false;
-      }
-      if (minat == "") {
-        document.getElementById("inputMinat").classList.add("shake");
-        setTimeout(function() { document.getElementById("inputMinat").classList.remove("shake"); }, 500);
-        valid = false;
-      }
-      if (!valid) return;
+      newMembers.push({nama, email, minat});
+      if(typeof addMember === 'function') addMember({nama, email, minat});
 
-      // Simpan ke array
-      var anggota = {
-        nama: nama,
-        email: email,
-        minat: minat
-      };
-      anggotaBaru.push(anggota);
-      addMember(anggota); // simpan ke sessionStorage via members.js
-
-      // Show result panel
-      var resultData = document.getElementById("resultData");
-      resultData.innerHTML = 
-        "<div class='result-row'><span>Name</span><strong>" + nama + "</strong></div>" +
-        "<div class='result-row'><span>Email</span><strong>" + email + "</strong></div>" +
-        "<div class='result-row'><span>Interest</span><strong>" + minat + "</strong></div>";
-      document.getElementById("resultPanel").style.display = "flex";
-
-      // Tampilkan daftar anggota baru
-      tampilkanAnggotaBaru();
-
-      // Reset form
-      document.getElementById("inputNama").value  = "";
-      document.getElementById("inputEmail").value = "";
-      document.getElementById("inputMinat").value = "";
+      document.getElementById("resultData").innerHTML = `<p><b>${nama}</b> - ${email} (${minat})</p>`;
+      document.getElementById("resultPanel").style.display = "block";
+      
+      const list = document.getElementById("hasilInput");
+      list.innerHTML = newMembers.map(m => `<div class='member-item'><b>${m.nama}</b> - ${m.minat}</div>`).join('');
     }
-
-    function resetAndRegisterAnother() {
+    function resetForm() {
       document.getElementById("resultPanel").style.display = "none";
-      document.getElementById("inputNama").focus();
-    }
-
-    function tampilkanAnggotaBaru() {
-      var container = document.getElementById("hasilInput");
-      container.innerHTML = "";
-
-      if (anggotaBaru.length == 0) {
-        container.innerHTML = "<div class='empty-state'>No new registrations yet.<br>Fill the form to get started!</div>";
-        return;
-      }
-
-      var html = "";
-      for (var i = 0; i < anggotaBaru.length; i++) {
-        var initial = anggotaBaru[i].nama.charAt(0).toUpperCase();
-        html += "<div class='member-item'>";
-        html += "  <div class='member-avatar'>" + initial + "</div>";
-        html += "  <div class='member-info'>";
-        html += "    <strong>" + anggotaBaru[i].nama + "</strong>";
-        html += "    <span>" + anggotaBaru[i].minat + "</span>";
-        html += "  </div>";
-        html += "</div>";
-      }
-      container.innerHTML = html;
+      document.querySelectorAll("input, select").forEach(el => el.value = "");
     }
   </script>
-
 </body>
 </html>
