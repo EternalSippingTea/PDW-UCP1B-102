@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: system-ui, sans-serif;
+  font-family: 'Dubai', system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
   margin: 0;
