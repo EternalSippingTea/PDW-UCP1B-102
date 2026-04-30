@@ -24,8 +24,9 @@
     <!-- Photos -->
     <div class="media-block">
       <h2>Event Gallery</h2>
-      <img src="../assets/wp4401472-realistic-minecraft-wallpapers.jpg" alt="Activity Photo">
-      <p>Realistic Minecraft Wallpaper</p>
+      <img id="galleryImg" src="../assets/wp4401472-realistic-minecraft-wallpapers.jpg" alt="Activity Photo">
+      <p id="galleryCaption">Realistic Minecraft Wallpaper</p>
+      <button class="btn-primary" onclick="swapImage()" style="margin-top:0.5rem">Swap Image</button>
     </div>
 
     <div class="media-grid">
@@ -63,6 +64,15 @@
   </footer>
 
   <script>
+    let isImg1 = true;
+    function swapImage() {
+      const img = document.getElementById("galleryImg");
+      const cap = document.getElementById("galleryCaption");
+      if(isImg1) { img.src = "../assets/wp6005476-desktop-hd-minecraft-shaders-wallpapers.jpg"; cap.textContent = "Tech Community Meetup"; }
+      else { img.src = "../assets/wp4401472-realistic-minecraft-wallpapers.jpg"; cap.textContent = "Realistic Minecraft Wallpaper"; }
+      isImg1 = !isImg1;
+    }
+
     const audio = document.getElementById("audioPlayer");
     const fill = document.getElementById("progressFill");
     const fmt = s => `${Math.floor((s||0)/60)}:${Math.floor((s||0)%60).toString().padStart(2,'0')}`;

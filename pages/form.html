@@ -44,6 +44,9 @@
           </select>
         </div>
         <button class="btn-primary" onclick="submitForm()">Register Now →</button>
+        <div style="margin-top: 1rem; text-align: center;">
+          <a href="../index.html" class="btn-secondary">← Back to Home</a>
+        </div>
       </div>
 
       <div class="result-panel" id="resultPanel" style="display:none;">
@@ -87,6 +90,9 @@
 
       newMembers.push({nama, email, minat});
       if(typeof addMember === 'function') addMember({nama, email, minat});
+
+      // Show alert as per requirement
+      alert(`Registration Successful for ${nama}!`);
 
       document.getElementById("resultData").innerHTML = `<p><b>${nama}</b> - ${email} (${minat})</p>`;
       document.getElementById("resultPanel").style.display = "block";
